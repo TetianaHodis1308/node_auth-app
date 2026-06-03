@@ -21,9 +21,16 @@ export async function GET(request: Request) {
       { status: 502 },
     );
   }
-  const payload = await res.json();
+  const payload = await res.json().catch(() => null);
 
-  if (!payload.normalizedUser) {
+  if (!res.ok) {
+    return NextResponse.json(
+      payload ?? { message: 'Email activation failed' },
+      { status: res.status },
+    );
+  }
+
+  if (!payload?.normalizedUser) {
     return NextResponse.json({ message: 'Unauthorized' }, { status: 401 });
   }
 

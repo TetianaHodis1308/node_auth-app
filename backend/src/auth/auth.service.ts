@@ -143,9 +143,13 @@ export class AuthService {
 
       return { message: 'Account activated', statusCode: 200 };
     } catch (error) {
+      if (error instanceof HttpException) {
+        throw error;
+      }
       throw new BadRequestException({
         statusCode: 400,
-        message: error,
+        message:
+          error instanceof Error ? error.message : 'Activation failed',
         error: 'Bad Request',
       });
     }

@@ -14,6 +14,13 @@ export async function PUT(request: Request) {
     url = `${base}/user/update-user-password`;
   }
 
+  if (!url) {
+    return NextResponse.json(
+      { message: 'No update fields provided' },
+      { status: 400 },
+    );
+  }
+
   let res: Response;
   try {
     res = await fetch(url, {

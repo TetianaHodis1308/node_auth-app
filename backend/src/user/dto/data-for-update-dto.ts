@@ -36,4 +36,10 @@ export class DataForUpdatePasswordDto {
   @IsNotEmpty()
   @IsStrongPassword()
   newPassword!: string;
+
+  @IsString()
+  @IsNotEmpty()
+  @IsStrongPassword()
+  @MatchField('newPassword', { message: 'Passwords do not match' })
+  confirmNewPassword!: string;
 }

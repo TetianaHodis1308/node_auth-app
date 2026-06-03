@@ -207,6 +207,7 @@ function UpdatePasswordForm() {
       const { data: result } = await api.put("/api/user/update-user-data", {
         password: data.currentPassword,
         newPassword: data.newPassword,
+        confirmNewPassword: data.confirmPassword,
       });
 
       if (result?.statusCode !== 200 && result?.message !== "ok") {
