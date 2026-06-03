@@ -3,7 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Providers from "./providers";
 import LogoutButton from "./components/logoutButton";
-import SingInButton from "./components/singInButton";
+import SignInButton from "./components/signInButton";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -45,7 +45,7 @@ export default async function RootLayout({
                   </h1>
                 </div>
                 <LogoutButton />
-                <SingInButton />
+                <SignInButton />
               </header>
 
 

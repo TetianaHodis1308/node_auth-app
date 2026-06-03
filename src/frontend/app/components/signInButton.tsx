@@ -3,7 +3,7 @@
 import { useUser } from "@/app/hooks/useUser";
 import { usePathname, useRouter } from "next/navigation";
 
-export default function SingInButton() {
+export default function SignInButton() {
   const router = useRouter();
   const { data: user, isLoading } = useUser();
   const pathname = usePathname();
@@ -18,7 +18,7 @@ export default function SingInButton() {
         onClick={() => router.push('/sign-in')}
         className="text-white w-fit cursor-pointer rounded-2xl border border-rose-700/35 bg-surface-panel p-6 text-center shadow-[inset_0_0_20px_rgba(244,63,94,0.14)] sm:p-8"
       >
-        Got to sign in
+        Go to sign in
       </button>
   );
 }
